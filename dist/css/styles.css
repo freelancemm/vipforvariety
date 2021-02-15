@@ -4303,7 +4303,7 @@ input[type=button].btn-block {
 }
 
 .navbar-dark .navbar-brand {
-  color: #e6e600;
+  color: #FEEF15FF;
 }
 .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
   color: #ffff00;
@@ -6164,7 +6164,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #343a40 !important;
+  background-color: #101820FF !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -10204,20 +10204,20 @@ body {
 }
 
 .sb-sidenav-dark {
-  background-color: #212529;
-  color: rgba(255, 255, 255, 0.5);
+  background-color: #101820FF;
+  color: rgb(22, 30, 37);
 }
 .sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
-  color: rgba(232, 248, 4, 0.692);
+  color: #FEE715FF;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link {
-  color: rgba(232, 248, 4, 0.692);
+  color: #FEE715FF;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-nav-link-icon {
-  color: rgba(232, 248, 4, 0.692);
+  color: #FEE715FF;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-sidenav-collapse-arrow {
-  color: rgba(232, 248, 4, 0.692);
+  color: #FEE715FF;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover {
   color: #ffff00;

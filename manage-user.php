@@ -1,7 +1,7 @@
 <?php include('header.php');?>
 <?php include('sidebar.php');?>
 
-<div id="layoutSidenav_content">
+<div id="layoutSidenav_content" style="margin-top: 20px;">
                 <main>
                     <div class="container-fluid">
                         <div class="card-header">
@@ -19,10 +19,12 @@
                                             <th>Email</th>
                                             <th>Password</th>
                                             <th>Gender</th>
-                                            <th>Date of Birth</th>
                                             <th>Phone No</th>
                                             <th>Address</th>
+                                            <th>Account Expire Date</th>
                                             <th>Action</th>
+                                           
+                                           
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -32,9 +34,9 @@
                                             <th>Email</th>
                                             <th>Password</th>
                                             <th>Gender</th>
-                                            <th>Date of Birth</th>
                                             <th>Phone No</th>
                                             <th>Address</th>
+                                            <th>Account Expire Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

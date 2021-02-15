@@ -1,7 +1,7 @@
 <?php include('header.php');?>
 <?php include('sidebar.php');?>
 
-<div id="layoutSidenav_content">
+<div id="layoutSidenav_content" style="margin-top: 20px;">
                 <main>
                     <div class="container-fluid">
                     <div class="card mb-4">

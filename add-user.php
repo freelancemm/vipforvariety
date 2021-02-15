@@ -1,7 +1,7 @@
 <?php include('header.php');?>
 <?php include('sidebar.php');?>
 
-<div id="layoutSidenav_content">
+<div id="layoutSidenav_content" style="margin-top: 20px;">
                 <main>
                     <div class="container-fluid">
                     <div class="card mb-4">
@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3" for="dob">Date of Birth:</label>
+                                    <label class="control-label col-sm-3" for="dob">Account Expire Date:</label>
                                     <div class="col-sm-9">
                                         <input type="date" class="form-control" id="dob" placeholder="Enter birthday.." name="dob" required="">
                                     </div>
