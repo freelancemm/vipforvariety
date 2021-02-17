@@ -5,8 +5,8 @@
 
 
 
-    $username =  $_POST['mail'];
-    $password =  $_POST['pass'];
+    $username =  $_POST['inputemail'];
+    $password =  $_POST['inputpassword'];
 
 
 

@@ -1,65 +1,78 @@
-
 <?php
 session_start();
 
  ?>
 
-
-
-
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>NeonFlix-Login</title>
-    <link rel="stylesheet" href="user-login.css" type="text/css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Login||User</title>
+        <link href="dist/css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="loginbg" style="background-image:radial-gradient(#ffff00,#000000);">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-bold my-4">Login</h3></div>
+                                    <div class="card-body">
+                                        <form class="" action="Plogin.php" method="POST">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                                <input class="form-control py-4" name= "inputemail" id="inputemail" type="email" placeholder="Enter email address" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputPassword">Password</label>
+                                                <input class="form-control py-4" name="inputpassword" id="inputpassword" type="password" placeholder="Enter password" />
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
+                                                    <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                <a class="small" href="password.html">Forgot Password?</a>
+                                                <button type="submit" class="btn btn-info" name="login">Login</button>
+                                            </div>
 
-  </head>
-  <body>
-    <header>
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <a href="login.php" class="navbar-brand"> <img src="images/logo.png" alt=""> </a>
-            <span class="navbar-text">NeonFlix</span>
-
-            <ul class="navbar-nav">
-              <li class="nav-item"> <a href="test.php" class="nav-link"> SignUp</a> </li>
-
-            </ul>
-
-        </nav>
-
-        <div class="container">
-
-          <div class="jumbotron">
-            <h1>Login to your account</h1> <br>
-            <form class="" action="Plogin.php" method="POST"> <br><br>
-              <input type="email" class="form-control" placeholder="Usename/ Email Address" name="mail" value="">
-              <br>
-              <input type="password" class="form-control" placeholder="Password" name="pass" value="">
-              <br><br>
-
-              <div class="loginbutton">
-                <button type="submit" class="btn btn-success btn-lg" name="login">Login</button>
-
-              </div>
-              </form>
-
-              </div>
-
-
-          </div>
+                                        </form>
+                                    </div>
+                                    <!-- <div class="card-footer text-center">
+                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <!-- <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div> -->
         </div>
-
-  </header>
-  <footer class="page-footer font-small blue">
-
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="">shubhamb756@gmail.com</a>
-    </div>
-
-  </footer>
-  </body>
-
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
