@@ -2,6 +2,7 @@
 session_start();
 
  ?>
+ <?php include('server.php');?>
 
 <?php include('header.php');?>
 <?php include('sidebar.php');?>
@@ -27,7 +28,19 @@ session_start();
                                 <div class="card bg-info text-white mb-4">
                                     <div class="card-body">Number of Users</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">0</a>
+
+                                        <?php { 
+                                            $query="SELECT COUNT(*) as totaluser
+                                            FROM vipusers";
+
+                                            $result=mysqli_query($db,$query);
+                                            $res=mysqli_fetch_array($result);
+                                            $count=$res['totaluser'];
+                                            ?>
+
+                                        
+                                        <a class="small text-white stretched-link" href="#"><?=$count?></a>
+                                        <?php } ?>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </div>
@@ -36,7 +49,18 @@ session_start();
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Active Accounts</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">0</a>
+                                    <?php { 
+                                            $today=date("Y-m-d");
+                                            $query="SELECT COUNT(*) as activeaccount FROM vipusers WHERE DATE(accexpiredate)> DATE(\"$today\")";  ;
+
+                                            $result=mysqli_query($db,$query);
+                                            $res=mysqli_fetch_array($result);
+                                            $activecount=$res['activeaccount'];
+                                            ?>
+
+                                        
+                                        <a class="small text-white stretched-link" href="#"><?=$activecount?></a>
+                                        <?php } ?>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </div>
@@ -45,7 +69,18 @@ session_start();
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Expired Accounts</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">0</a>
+                                    <?php { 
+                                            $today=date("Y-m-d");
+                                            $query="SELECT COUNT(*) as expirecount FROM vipusers WHERE DATE(accexpiredate)<= DATE(\"$today\")";  ;
+
+                                            $result=mysqli_query($db,$query);
+                                            $res=mysqli_fetch_array($result);
+                                            $expirecount=$res['expirecount'];
+                                            ?>
+
+                                        
+                                        <a class="small text-white stretched-link" href="#"><?=$expirecount?></a>
+                                        <?php } ?>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </div>

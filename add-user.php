@@ -1,5 +1,7 @@
+<?php include ('server.php'); ?>
 <?php include('header.php');?>
 <?php include('sidebar.php');?>
+
 
 <div id="layoutSidenav_content" style="margin-top: 20px;">
                 <main>
@@ -10,17 +12,12 @@
                                 Register Form
                             </div>
                             <div class="card-body">
-                            <form class="form-horizontal" action="/action_page.php">
+                            <form class="form-horizontal" action="add-user.php"  method="post">
+                               
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3" for="fname">First Name:</label>
+                                    <label class="control-label col-sm-3" for="username">Username:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="fname" placeholder="Enter first name.." name="fname" required="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-3" for="lname">Last Name:</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="lname" placeholder="Enter last name.." name="lname" required="">
+                                        <input type="text" class="form-control" id="username" placeholder="Enter username.." name="username" required="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -30,42 +27,22 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3" for="pwd">Password:</label>
+                                    <label class="control-label col-sm-3" for="password">Password:</label>
                                     <div class="col-sm-9">          
-                                        <input type="password" class="form-control" id="pwd" placeholder="Enter password.." name="pwd" required="">
+                                        <input type="password" class="form-control" id="password" placeholder="Enter password.." name="password" required="">
                                     </div>
                                 </div>
+                              
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3" for="gender">Gender:</label>
-                                    <div class="col-sm-9"> 
-                                        <select id="gender" class="form-control" name="gender" required="">
-                                            <option value="">--Select Gender</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-3" for="dob">Account Expire Date:</label>
+                                    <label class="control-label col-sm-3" for="accexpiredate">Account Expire Date:</label>
                                     <div class="col-sm-9">
-                                        <input type="date" class="form-control" id="dob" placeholder="Enter birthday.." name="dob" required="">
+                                        <input type="date" class="form-control" id="accexpiredate" placeholder="Enter account expire date.." name="accexpiredate" required="">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-3" for="phno">Phone Number:</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="phno" placeholder="Enter Phone No.." name="phno" required="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-3" for="address">Address:</label>
-                                    <div class="col-sm-9">
-                                        <textarea class="form-control" rows="4" name="address" placeholder="Enter Address.." style="height: 120px;"></textarea>
-                                    </div>
-                                </div>
+                             
                                 <div class="form-group">        
                                     <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-info">Submit</button>
+                                        <button type="submit" class="btn btn-info" name="register">Submit</button>
                                     </div>
                                 </div>
                             </form>

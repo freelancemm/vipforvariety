@@ -133,7 +133,7 @@
                                     <div class="card-footer">
                                         <div class="row">
                                             <div class="col-xl-6 col-md-6">
-                                                <video width="300" controls>
+                                                <video style=" height: auto; width:70%" controls>
                                                     <source src="dist/assets/img/awmv.mp4" type="video/mp4">
                                                     <source src="dist/assets/img/awmv.ogg" type="video/ogg">
                                                 </video>
