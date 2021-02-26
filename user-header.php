@@ -13,10 +13,101 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
         <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script> -->
     </head>
+    <style>
+       .slide{
+            position: relative;
+            animation-name: announcement;
+            animation-duration: 7s;
+            color:red;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
+        @keyframes announcement {
+            0%   {left:20px;}
+            25%  {left:-20px;}
+            50%  {left:20px;}
+            75%  {left:-20px; }
+            100% {left:20px;}
+        }
+        @media (min-width: 576px) {
+        .slide {
+            position: relative;
+            animation-name: announcement;
+            animation-duration: 4s;
+            color:red;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            }
+            @keyframes announcement {
+                0%   {left:20px;}
+                25%  {left:-20px;}
+                50%  {left:20px;}
+                75%  {left:-20px; }
+                100% {left:20px;}
+            }
+        }
+        @media (min-width: 768px) {
+        .slide {
+            position: relative;
+            animation-name: announcement;
+            animation-duration: 4s;
+            color:red;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            }
+        @keyframes announcement {
+            0%   {left:0px;}
+            25%  {left:26px;}
+            50%  {left:52px;}
+            75%  {left:78px; }
+            100% {left:104px;}
+            }
+        }
+        @media (min-width: 992px) {
+        .slide {
+            position: relative;
+            animation-name: announcement;
+            animation-duration: 6s;
+            color:red;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            }
+        @keyframes announcement {
+            0%   {left:0px;}
+            25%  {left:150px;}
+            50%  {left:300px;}
+            75%  {left:450px; }
+            100% {left:600px;}
+            }
+        }
+        @media (min-width: 1200px) {
+        .slide {
+            position: relative;
+            animation-name: announcement;
+            animation-duration: 7s;
+            color:red;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
+        @keyframes announcement {
+            0%   {left:0px;}
+            25%  {left:125px;}
+            50%  {left:250px;}
+            75%  {left:375px; }
+            100% {left:500px;}
+            }
+        }
+    </style>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="dashboard.php">Variety Myanmar</a>
             <!-- <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button> -->
+            <div class="slide"><i class="fas fa-exclamation-triangle"></i>Your Account Will be Expired on 21.2.2021</div>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
@@ -42,7 +133,7 @@
         </nav>
 
 <div class="modal fade" id="pwModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
@@ -80,7 +171,7 @@
 </script>
 
 <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Profile</h5>
