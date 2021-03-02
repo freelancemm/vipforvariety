@@ -1,19 +1,21 @@
 <?php include('user-header.php');?>
 <style>
     .vm-livemovie{
+            width:250px;
             background-image: linear-gradient(90deg, #000000, #001f4d);
             border-radius:20px;
             border-style:none;
-            border-width:thin;
             margin: 10px 10px;
             padding: 10px 10px;
+            letter-spacing: 2px;
         }
         .vm-download{
+            width:250px;
             background-image: linear-gradient(90deg, #000000, #001f4d);
             border-radius:20px;
             border-style:none;
-            border-width:thin;
             padding: 10px 10px;
+            letter-spacing: 2px;
         }
 </style>
 <div id="layoutSidenav_content">
@@ -36,10 +38,10 @@
                                             </p>
                                             <div class="row align-items-center justify-content-center">
                                                 <div class="livemovie">
-                                                    <a href="#" data-toggle="modal" data-target="#liveModal"><button type="button" class="vm-livemovie text-white" ><i class="fas fa-film"></i>Live Movie</button></a>
+                                                    <a href="#" data-toggle="modal" data-target="#liveModal"><button type="button" class="vm-livemovie text-white"><i class="fas fa-film" style="margin-right: 10px;"></i>Live Movie</button></a>
                                                 </div>
                                                 <div class="download">
-                                                    <a href="#" data-toggle="modal" data-target="#downloadModal"><button type="button" class="vm-download text-white" ><i class="fas fa-download"></i>Download</button></a>
+                                                    <a href="#" data-toggle="modal" data-target="#downloadModal"><button type="button" class="vm-download text-white" ><i class="fas fa-download" style="margin-right: 10px;"></i>Download</button></a>
                                                 </div>
                                             </div>
                                     </div>
