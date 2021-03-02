@@ -1,6 +1,4 @@
-<?php
-  session_start();
-  include 'dbh.php';
+<?php include 'dbh.php';
 
 
 

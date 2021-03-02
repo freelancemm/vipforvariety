@@ -1,3 +1,4 @@
+<?php include ('server.php'); ?>
 <?php include('header.php');?>
 <?php include('sidebar.php');?>
 
@@ -11,35 +12,53 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+
+                            <?php 
+                              
+                                $results = mysqli_query($db, "SELECT * FROM vipusers"); ?>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
+                                            <th>Username</th>
                                             <th>Email</th>
                                             <th>Password</th>
-                                            <th>Gender</th>
-                                            <th>Phone No</th>
-                                            <th>Address</th>
                                             <th>Account Expire Date</th>
-                                            <th>Action</th>
+                                            <th >Action</th>
                                            
                                            
                                         </tr>
                                     </thead>
-                                    <tfoot>
+                                    
+	<?php while ($row = mysqli_fetch_array($results)) { ?>
+		<tr>
+			<td><?=$row['username']; ?></td>
+			<td><?=$row['email']; ?></td>
+			<td><?=$row['password']; ?></td>
+
+			<td><?=$row['accexpiredate']; ?></td>
+
+           
+			
+			<td>
+				<a href="edit-user.php?edit=<?=$row['userid'];?>" class="edit_btn" >Edit</a>
+
+                <a href="server.php?del=<?=$row['userid']; ?>" class="del_btn">Delete</a>
+			</td>
+			<!-- <td>
+				<a href="server.php?del=<?=$row['userid']; ?>" class="del_btn">Delete</a>
+			</td> -->
+		</tr>
+	<?php } ?>
+                                    <!-- <tfoot>
                                         <tr>
-                                        <th>First Name</th>
-                                            <th>Last Name</th>
+                     
+                                           <th>Username</th>
                                             <th>Email</th>
                                             <th>Password</th>
-                                            <th>Gender</th>
-                                            <th>Phone No</th>
-                                            <th>Address</th>
                                             <th>Account Expire Date</th>
-                                            <th>Action</th>
+                                            <th colspan="2">Action</th>
                                         </tr>
-                                    </tfoot>
+                                    </tfoot> -->
                                 </table>
                             </div>
                         </div>
