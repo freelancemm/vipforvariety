@@ -17,6 +17,32 @@
             padding: 10px 10px;
             letter-spacing: 2px;
         }
+        .modal-header{
+            background-color: #000000;
+        }
+        #downloadModal .modal-body{
+            background-image: url(dist/assets/img/rm7012.jpg); 
+            background-size: cover; 
+            width: 100%; 
+            height: auto;
+            background-position: fixed;
+        }
+        #downloadForm{
+            background-color: rgba(182, 217, 244, 0.3);
+            border: 2px #000000 solid;
+            border-radius: 20px;
+            margin: 5px 0;
+            padding: 20px 20px;
+        }
+        #downloadForm ul li a{
+            color: #000000;
+            font-family: "times new roman",sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+        }
+        #downloadForm ul li a:hover{
+            color: #0059b3;
+        }
 </style>
 <div id="layoutSidenav_content">
                 <main>
@@ -38,7 +64,7 @@
                                             </p>
                                             <div class="row align-items-center justify-content-center">
                                                 <div class="livemovie">
-                                                    <a href="#" data-toggle="modal" data-target="#liveModal"><button type="button" class="vm-livemovie text-white"><i class="fas fa-film" style="margin-right: 10px;"></i>Live Movie</button></a>
+                                                    <a href="#" data-toggle="modal" data-target="#liveModal"><button type="button" class="vm-livemovie text-white"><i class="fas fa-film"style="margin-right: 10px;"></i>Live Movie</button></a>
                                                 </div>
                                                 <div class="download">
                                                     <a href="#" data-toggle="modal" data-target="#downloadModal"><button type="button" class="vm-download text-white" ><i class="fas fa-download" style="margin-right: 10px;"></i>Download</button></a>
@@ -68,11 +94,11 @@
 
 <!-- movie play modal form -->
 <div class="modal fade" id="liveModal" tabindex="-1" aria-labelledby="liveModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="liveModalLabel">Movie Play</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title text-warning" id="liveModalLabel">Movie Play</h5>
+                <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -95,22 +121,29 @@
 
 <!-- download modal form -->
 <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="downloadModalLabel">Download Links</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title text-warning" id="downloadModalLabel">Download Links</h5>
+                <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-            <form id="downloadForm">
-                <ul class="download" style="list-style:none;">
-                    <li><a href="#">Download Link</a></li>
-                    <li><a href="#">Download Link</a></li>
-                    <li><a href="#">Download Link</a></li>
-                </ul>
-            </form>
+                <form id="downloadForm">
+                    <ul class="download" style="list-style:none;">
+                        <li><a href="#">Download Link</a></li>
+                        <li><a href="#">Download Link</a></li>
+                        <li><a href="#">Download Link</a></li>
+                        <li><a href="#">Download Link</a></li>
+                        <li><a href="#">Download Link</a></li>
+                        <li><a href="#">Download Link</a></li>
+                        <li><a href="#">Download Link</a></li>
+                        <li><a href="#">Download Link</a></li>
+                        <li><a href="#">Download Link</a></li>
+                    </ul>
+                </form>
+            </div>
         </div>
     </div>
   </div>
