@@ -1,4 +1,4 @@
-<footer class="py-4 mt-auto">
+<footer class="py-4 mt-auto" style="padding:10px; background-image: linear-gradient(90deg, #000000, #001f4d);">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; VM Website 2021</div>
