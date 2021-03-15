@@ -1,4 +1,5 @@
-<?php include ('server.php'); ?>
+
+
 <?php include('header.php');?>
 <?php include('sidebar.php');?>
 
@@ -9,7 +10,7 @@
                     <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-user-plus mr-1"></i>
-                                Register Form
+                                Edit User
                             </div>
                             <div class="card-body">
                             <form class="form-horizontal" action="server.php"  method="post">

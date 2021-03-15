@@ -1,13 +1,9 @@
-<?php
-session_start();
-
- ?>
- <?php include('server.php');?>
-
 <?php include('header.php');?>
 <?php include('sidebar.php');?>
 
+
 <div id="layoutSidenav_content" >
+
                 <main>
                     <div class="container-fluid" >
                         <h1 class="mt-4">Admin Dashboard</h1>
@@ -19,7 +15,18 @@ session_start();
                                 <div class="card bg-info text-white mb-4">
                                     <div class="card-body">Number of Movies</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">0</a>
+                                    <?php { 
+                                            $query="SELECT COUNT(*) as totalmovie
+                                            FROM uploadedmovies";
+
+                                            $result=mysqli_query($db,$query);
+                                            $res=mysqli_fetch_array($result);
+                                            $count=$res['totalmovie'];
+                                            ?>
+
+                                        
+                                        <a class="small text-white stretched-link" href="#"><?=$count?></a>
+                                        <?php } ?>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
                                 </div>
@@ -87,6 +94,7 @@ session_start();
                             </div>
                         </div>
 
+         
                         <div style="visibility: hidden;">
 <?php include('footer.php');?>
 </div>

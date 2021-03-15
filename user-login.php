@@ -1,9 +1,5 @@
-<?php
-session_start();
-
- ?>
-       <?php include('server.php'); ?>
-       <?php include('errors.php'); ?>
+ <?php include('server.php'); ?>
+<?php include('errors.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +33,7 @@ session_start();
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-bold my-4">Login</h3></div>
                                     <div class="card-body">
-                                        <form class="" action="user-login.php" method="POST">
+                                        <form class="" action="server.php" method="POST">
                                             <div class="form-group">
                                             
                                                 <label class="small mb-1" for="username">Email</label>

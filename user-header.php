@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,8 +11,14 @@
         <link href="dist/css/styles.css" rel="stylesheet" />
         <!-- <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" /> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+        <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css"> -->
         <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script> -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     
+     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
     </head>
     <style>
        .slide{
@@ -106,12 +113,43 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="dashboard.php">Variety Myanmar</a>
+            <?php { 
+                                            $id=$_SESSION['userid'];
+                                            $query="SELECT * FROM vipusers WHERE userid='$id'";
+
+                                            $result=mysqli_query($db,$query);
+                                            $res=mysqli_fetch_array($result);
+                                            $username=$res['username'];
+                                            $accexpriedate=$res['accexpiredate'];
+                                            $tomorrow = date("Y-m-d", strtotime("tomorrow"));
+                                            $thedayaftertomorrow = date("Y-m-d", strtotime("tomorrow+ 1day"));
+
+                                            if($accexpriedate==$thedayaftertomorrow || $accexpriedate==$tomorrow )
+                                            {
+                                               $visible='block';
+                                         
+                                            }
+                                            else
+                                            {
+                                                $visible='none';
+
+                                            }
+
+                                           
+
+                                            
+                                            ?>
             <!-- <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button> -->
-            <div class="slide"><i class="fas fa-exclamation-triangle"></i>Your Account Will be Expired on 21.2.2021</div>
+            <div class="slide" style="display:<?= $visible?>"><i class="fas fa-exclamation-triangle"></i>Your Account Will be Expired on <?=$accexpriedate?></div>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
-                <p style="color:white;margin-top:15px; margin-left:10px">user</p>
+               
+
+                                        
+                                <p style="color:white;margin-top:15px; margin-left:10px"><?=$username?></p>
+                                        <?php } ?>
+             
                     <!-- <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
                     <div class="input-group-append">
                         <button class="btn btn-warning" type="button"><i class="fas fa-search"></i></button>
@@ -126,7 +164,14 @@
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">Profile</a>
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#pwModal">Change Passowrd</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+
+                        <form action="server.php"  method="post"> 
+          
+                        <button type="submit" class="dropdown-item" name="userlogout">Logout</button>
+            
+
+                      </form>
+                     
                     </div>
                 </li>
             </ul>
@@ -145,22 +190,23 @@
             <form id="pwForm">
                 <div class="form-group">
                     <label for="cpw">Current Password</label>
-                    <input type="text" class="form-control" id="cpw" placeholder="Type Current Password.."/> 
+                    <input type="password" class="form-control"  id="cpw" name="currentpassword" placeholder="Type Current Password.." required/> 
                 </div>
                 <div class="form-group">
                     <label for="npw">New Password</label>
-                    <input type="text" class="form-control" id="npw" placeholder="Type New Password.." />
+                    <input type="password" class="form-control" id="npw" name="newpassword1" placeholder="Type New Password.." required/>
                 </div>
                 <div class="form-group">
                     <label for="repw">Retype New Password</label>
-                    <input type="text" class="form-control" id="repw" placeholder="New Password Again.." /> 
+                    <input type="password" class="form-control" id="repw" name="newpassword2" placeholder="New Password Again.." required/> 
                 </div>
+                <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Save changes</button>
+        </div>
             </form>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-success">Save changes</button>
-        </div>
+        
     </div>
   </div>
 </div>
@@ -181,22 +227,36 @@
             </div>
             <div class="modal-body">
             <form id="profileForm">
+
+            <?php { 
+
+                                        
+$id=$_SESSION['userid'];
+$query="SELECT * FROM vipusers WHERE userid='$id'";
+
+$result=mysqli_query($conn,$query);
+$res=mysqli_fetch_array($result);
+$username=$res['username'];
+$email=$res['email'];
+?>
                 <div class="form-group">
                     <label for="username">Username:</label>
-                    <input type="text" class="form-control" id="cpw" value="user"/> 
+                    <input type="text" class="form-control" id="cpw" name="username" value='<?=$username?>'/> 
                     <div class="text1"></div> 
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="text" class="form-control" id="cpw" value="user@gmail.com" /> 
+                    <input type="text" class="form-control" id="cpw" name="email" value='<?=$email?>' /> 
                     <div class="text2"></div>
                 </div>
+                <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Update</button>
+           </div>
+                <?php } ?>
             </form>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-success">Update</button>
-        </div>
+      
     </div>
   </div>
 </div>
@@ -205,4 +265,139 @@
     $('#profileModal').on('shown.bs.modal', function () {
   $('#profileForm').trigger('focus')
 })
+jQuery(document).on('submit', '#profileForm', function(e){
+            e.preventDefault();
+
+       
+          
+            $.ajax({
+               
+                type: 'POST',
+                url: 'updateuserprofile.php',
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                dataType:'json',
+ 
+                beforeSend: function(){
+                    $('.btn btn-success').attr("disabled","disabled");
+                    $(".spinner").show();
+                   
+                },
+ 
+                success: function(response){
+                  
+                      if(response['alert-type']=='success')
+                      {
+                        $type=response['alert-type'];
+                        $message=response['message'];
+
+                     
+                        $(".spinner").hide();
+                       // location.reload();
+
+                        shownoti($type,$message);
+                        setTimeout(location.reload(), 10000);
+                   
+                       // window.location.href ='dashboard.php';
+                      }
+                      else
+                      {
+                        $type=response['alert-type'];
+                        $message=response['message'];
+
+                        shownoti($type,$message);
+
+                      }
+                    
+                   
+                  
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                  console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                }
+            });
+          
+        });
+
+        jQuery(document).on('submit', '#pwForm', function(e){
+            e.preventDefault();
+
+     
+          
+            $.ajax({
+               
+                type: 'POST',
+                url: 'updateuserpassword.php',
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                dataType:'json',
+ 
+                beforeSend: function(){
+                    $('.btn btn-success').attr("disabled","disabled");
+                    $(".spinner").show();
+                   
+                },
+ 
+                success: function(response){
+                  
+                      if(response['alert-type']=='success')
+                      {
+                        $type=response['alert-type'];
+                        $message=response['message'];
+
+                      
+                        $(".spinner").hide();
+                        //location.reload();
+
+                        shownoti($type,$message);
+                       
+                        setTimeout(location.reload(), 10000);
+                   
+                   
+                       // window.location.href ='dashboard.php';
+                      }
+                      else
+                      {
+                        $type=response['alert-type'];
+                        $message=response['message'];
+
+                        shownoti($type,$message);
+
+                      }
+                    
+                   
+                  
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                  console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                }
+            });
+          
+        });
+
+        function shownoti(type,message)
+  {
+
+  //  var type=response['alert-type'];
+
+  
+    switch(type){
+      case 'info':
+             toastr.info(message);
+             break;
+          case 'success':
+              toastr.success(message);
+              break;
+           case 'warning':
+              toastr.warning(message);
+              break;
+          case 'error':
+            toastr.error(message);
+            break;
+    }
+  }
 </script>
