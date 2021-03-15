@@ -23,16 +23,20 @@
          {  
               if(trim($_POST["url"][$i] != ''))  
               {  
-                  $url[$i]=$_POST["url"][$i];
+                  if($i==0)
+                  {
+                  $url1=$_POST["url"][0];
+                  }
+                  if($i==1)
+                  {
+                  $url2=$_POST["url"][1];
+                  }
+                  if($i==2)
+                  {
+                  $url3=$_POST["url"][2];
+                  }
               }
-            //   if(trim($_POST["url"][1] != ''))  
-            //   {  
-            //       $url2=$_POST["url"][1];
-            //   }
-            //   if(trim($_POST["url"][2] != ''))  
-            //   {  
-            //       $url3=$_POST["url"][2];
-            //   }   
+          
          }  
         // echo "Data Inserted";  
     }  
