@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+date_default_timezone_set('Asia/Yangon');
 $name="";
 $username="";
 $phonenumber="";
@@ -83,46 +84,88 @@ if(isset($_POST ['update-user'])){
     }
     }
 
-    if (isset($_POST['user-login'])) {
+    
 
-		$username=mysqli_real_escape_string($conn,$_POST['username']);
-		
-		$password=mysqli_real_escape_string($conn,$_POST['password']);
+if(isset($_POST['add-movie']))
+{
 
-			//$password=md5($password);
-			$query="SELECT * FROM vipusers WHERE email='$username' AND password='$password'";
-			$result=mysqli_query($db,$query);
-            $res=mysqli_fetch_array($result);
-            $expiredate=$res["accexpiredate"];
-            $today=date("Y-m-d");
+    $imagetarget="uploadimages/".basename($_FILES ['image'] ['name']);
+    $movietarget="uploadmovies/".basename($_FILES['movie']['name']);
 
-			if(mysqli_num_rows($result) ==1){
+    $moviname=mysqli_real_escape_string($conn,$_POST['moviename']);
+    $genre=mysqli_real_escape_string($conn,$_POST['genre']);
+    $releaseyear=mysqli_real_escape_string($conn,$_POST['releaseyear']);
+    $runtime=mysqli_real_escape_string($conn,$_POST['runtime']);
+    $description=mysqli_real_escape_string($conn,$_POST['description']);
+    $image=$_FILES ['image'] ['name']; 
+    $movie=$_FILES ['movie'] ['name'];
 
-                if($expiredate<=$today)
-                {
-                    array_push($errors,"Your Account is expired");
+    $lastupdateddate=date("Y/m/d");
+
+   
+    
+    $sql="INSERT into uploadedmovies(moviename,genre,releaseyear,runtime,description,imagepath,moviepath,image,movie,lastupdateddate) VALUES('$moviname','$genre','$releaseyear','$runtime','$description','$imagetarget','$movietarget','$image','$movie','$lastupdateddate')";
+
+    $result = mysqli_query($conn, $sql);
+
+    move_uploaded_file($_FILES['image']['tmp_name'], $imagetarget);
+    move_uploaded_file($_FILES['movie']['tmp_name'], $movietarget);
+    
+    header('location:manage-movie.php');//redirecet to the profile page
 
 
-                }
-                else
-                {
+}
 
-         
-				$_SESSION['username'] =$username;
-                header('location:user-dashboard.php');//redirecet to the profile page
-                }
+if (isset($_GET['delmovie'])) {
 
-				
-			}else{
+    $encptid=$_GET['delmovie'];
+    $salt="vmsecret";
+    $id_raw=base64_decode($encptid);
+    $id=preg_replace(sprintf('/%s/', $salt), '', $id_raw);
 
-                echo "incorrect username or password";
+	
 
-				//array_push($errors,"The username or password is wrong");
 
-			}
+	mysqli_query($conn,"DELETE FROM uploadedmovies WHERE movieid=$id");
 
-			
-		}
 
+	header('location: manage-movie.php');
+}
+
+
+if (isset($_GET['deluser'])) {
+
+    $id=$_GET['deluser'];
+    // $salt="vmsecret";
+    // $id_raw=base64_decode($encptid);
+    // $id=preg_replace(sprintf('/%s/', $salt), '', $id_raw);
+
+	
+
+
+	mysqli_query($conn,"DELETE FROM vipusers WHERE userid=$id");
+
+
+	header('location: manage-user.php');
+}
+
+if(isset($_POST['userlogout'])){
+    mysqli_close($conn);
+    unset($_SESSION['username']);
+    unset($_SESSION['userid']);
+    $movieid=$_SESSION['movieid'];
+    header( "Location:login.php?mv={$movieid}" );
+   
+
+}
+
+if(isset($_POST['adminlogout'])){
+    mysqli_close($conn);
+    unset($_SESSION['adminname']);
+    unset($_SESSION['adminid']);
+    header( "Location:admin-login.php" );
+   
+
+}
 
 ?>

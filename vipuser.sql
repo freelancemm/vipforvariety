@@ -1,3 +1,12 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 15, 2021 at 03:16 PM
+-- Server version: 10.3.15-MariaDB
+-- PHP Version: 7.3.6
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -16,48 +25,44 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movies`
+-- Table structure for table `admins`
 --
 
-CREATE TABLE `movies` (
-  `mid` int(10) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `genre` varchar(20) NOT NULL,
-  `rdate` varchar(5) NOT NULL,
-  `runtime` varchar(4) NOT NULL,
-  `decription` varchar(100) NOT NULL,
-  `viewers` int(10) DEFAULT '1',
-  `imgpath` text NOT NULL,
-  `videopath` text NOT NULL
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `movies`
+-- Dumping data for table `admins`
 --
 
-INSERT INTO `movies` (`mid`, `name`, `genre`, `rdate`, `runtime`, `decription`, `viewers`, `imgpath`, `videopath`) VALUES
-(1, 'rampage', 'fiction', '2017', '120', 'animals', 8, 'rampage.jpg', 'RAMPAGE Trailer.mp4'),
-(2, 'black panther', 'fiction', '2017', '140', 'super hero movie', 13, 'black panther.jpg', 'Black Panther.mp4'),
-(3, 'spiderman homecoming', 'fiction', '2018', '110', 'super hero movie', 5, 'spider-man-homecoming.jpg', 'Spider-Man Homecoming.mp4'),
-(4, 'jumanji', 'adventure', '2017', '130', '4 kids stuck in video game', 12, 'jumanji2017.jpg', 'JUMANJI 17.mp4'),
-(5, 'the conjuring', 'horror', '2013', '120', 'ghost house', 1, 'Conjuring.jpg', 'The Conjuring.mp4'),
-(6, 'the conjuring 2', 'horror', '2015', '115', 'cursed family', 1, 'conjuring2.jpg', 'The Conjuring 2.mp4'),
-(7, 'infinity wars ', 'fiction', '2018', '123', 'collaboration of all marvel characters', 5, 'infinity war.jpg', 'Avengers Infinity War.mp4'),
-(8, 's', 's', 's', '', 's', 27, 'Baby Care Website in PHP with Full Source Code.jpg', ''),
-(9, 's', 's', 's', '12', 'sd', 27, 'Online Attendance Management System in PHP with Full Source Code.jpg', 'Attendance Monitoring.mp4'),
-(10, 'sadasdas', 'asd', 'asd', '', 'asd', 19, 'Attendance Monitoring System in Android with Full Source Code.jpg', 'Attendance Monitoring.mp4');
+INSERT INTO `admins` (`id`, `username`, `email`, `password`) VALUES
+(1, 'test9', 'test@gmail.com', '12345');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rating`
+-- Table structure for table `uploadedmovies`
 --
 
-CREATE TABLE `rating` (
-  `rating_id` int(10) NOT NULL,
-  `mid` int(11) DEFAULT NULL,
-  `id` int(11) DEFAULT NULL,
-  `rate_count` int(3) NOT NULL
+CREATE TABLE `uploadedmovies` (
+  `movieid` int(11) NOT NULL,
+  `moviename` varchar(255) NOT NULL,
+  `genre` varchar(255) NOT NULL,
+  `releaseyear` varchar(255) NOT NULL,
+  `runtime` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `URL1` varchar(1000) DEFAULT NULL,
+  `URL2` varchar(1000) DEFAULT NULL,
+  `URL3` varchar(1000) DEFAULT NULL,
+  `imagepath` varchar(1000) NOT NULL,
+  `moviepath` varchar(1000) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `movie` varchar(255) NOT NULL,
+  `lastupdateddate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -87,23 +92,46 @@ INSERT INTO `user1` (`id`, `username`, `passwd`, `name`, `phone`, `email`, `DOB`
 (5, 'niru@gmail.com', '1234', 'niru lal', '1234287564', 'niru@gmail.com', '16/09/1996', 7),
 (6, 'janobe@gmail.com', 'admin', 's s', '9876565421', 'janobe@gmail.com', '15/01/1995', 7);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vipusers`
+--
+
+CREATE TABLE `vipusers` (
+  `userid` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `accexpiredate` date NOT NULL,
+  `lastupdateddate` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vipusers`
+--
+
+INSERT INTO `vipusers` (`userid`, `username`, `email`, `password`, `accexpiredate`, `lastupdateddate`) VALUES
+(1, 'Aung Aung', 'test@gmail.com', '12345', '2021-03-16', '2021-03-14 17:30:00'),
+(2, 'test test', 'test2@gmail.com', '12345', '2021-02-23', '2021-02-23 17:30:00'),
+(3, 'Aung Aung', 'test2t@gmail.com', '12345', '2021-02-24', '2021-02-23 17:30:00'),
+(4, 'Aung Aung', 'test3@gmail.com', '12345', '2021-02-26', '2021-02-23 17:30:00');
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `movies`
+-- Indexes for table `admins`
 --
-ALTER TABLE `movies`
-  ADD PRIMARY KEY (`mid`);
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `rating`
+-- Indexes for table `uploadedmovies`
 --
-ALTER TABLE `rating`
-  ADD PRIMARY KEY (`rating_id`),
-  ADD KEY `mid` (`mid`),
-  ADD KEY `id` (`id`);
+ALTER TABLE `uploadedmovies`
+  ADD PRIMARY KEY (`movieid`);
 
 --
 -- Indexes for table `user1`
@@ -114,26 +142,38 @@ ALTER TABLE `user1`
   ADD KEY `mid` (`mid`);
 
 --
+-- Indexes for table `vipusers`
+--
+ALTER TABLE `vipusers`
+  ADD PRIMARY KEY (`userid`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `movies`
+-- AUTO_INCREMENT for table `admins`
 --
-ALTER TABLE `movies`
-  MODIFY `mid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `rating`
+-- AUTO_INCREMENT for table `uploadedmovies`
 --
-ALTER TABLE `rating`
-  MODIFY `rating_id` int(10) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `uploadedmovies`
+  MODIFY `movieid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `user1`
 --
 ALTER TABLE `user1`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `vipusers`
+--
+ALTER TABLE `vipusers`
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

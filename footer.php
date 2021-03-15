@@ -22,4 +22,29 @@
         <!-- <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script> -->
         <script src="dist/assets/demo/datatables-demo.js"></script>
     </body>
+
+    <script>
+    function shownoti(type,message)
+  {
+
+  //  var type=response['alert-type'];
+
+  
+    switch(type){
+      case 'info':
+             toastr.info(message);
+             break;
+          case 'success':
+              toastr.success(message);
+              break;
+           case 'warning':
+              toastr.warning(message);
+              break;
+          case 'error':
+            toastr.error(message);
+            break;
+    }
+  }
+    </script>
+
 </html>

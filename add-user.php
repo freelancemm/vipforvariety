@@ -1,4 +1,5 @@
-<?php include ('server.php'); ?>
+
+
 <?php include('header.php');?>
 <?php include('sidebar.php');?>
 

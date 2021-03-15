@@ -1,4 +1,56 @@
-<?php include('user-header.php');?>
+<?php include ('server.php'); ?>
+
+<?php 
+
+                         $encptid=$_GET['vm'];
+                         $_SESSION['movieid']=$encptid;
+                         if( $_SESSION['username']==null && $_SESSION['userid']==null)
+                         {
+                           header("Location: login.php?mv=$encptid");
+                         }
+                         if($_SESSION['userid']!=null)
+                         {
+                            $uid=$_SESSION['userid'];
+                            $results = mysqli_query($db, "SELECT * FROM vipusers WHERE userid=$uid"); 
+                            $row = mysqli_fetch_array($results);
+                            
+                            $accexpiredate=$row['accexpiredate'];
+                            if(  $accexpiredate==date("Y-m-d"))
+                            {
+                            header("Location: login.php?mv=$encptid");
+                            }  
+                         }
+                         
+                         
+                         if($encptid==null)
+                         {
+
+                            header( "Location:login.php?mv=NMXV" );
+                         }
+                           
+                         
+                           $salt="vmsecret";
+                           $id_raw=base64_decode($encptid);
+                           $id=preg_replace(sprintf('/%s/', $salt), '', $id_raw);
+                           { 
+                           $results = mysqli_query($db, "SELECT * FROM uploadedmovies WHERE movieid=$id"); 
+                           $row = mysqli_fetch_array($results);
+                           
+                           $moviename=$row['moviename'];
+                           $genre=$row['genre'];
+                           $releaseyear=$row['releaseyear'];
+                           $runtime=$row['runtime'];
+                           $description=$row['description'];
+                           $imagepath=$row['imagepath'];
+                           $moviepath=$row['moviepath'];
+                           $url1=$row['URL1'];
+                           $url2=$row['URL2'];
+                           $url3=$row['URL3'];
+
+                          
+                      
+                      
+                      ?> 
 <style>
     .vm-livemovie{
             width:250px;
@@ -18,23 +70,28 @@
             letter-spacing: 2px;
         }
 </style>
+<script>
+    if( $encptid==null)
+    {
+        $content1=document.getElementById("layoutSidenav_content");
+        $content1.style.display="none";
+
+    }
+</script>
+<?php include('user-header.php');?>
 <div id="layoutSidenav_content">
                 <main>
+               
                     <div class="container-fluid bg-dark" style="padding:10px; background-image: linear-gradient(90deg, #000000, #001f4d);">
-                        <h1 class="mt-5" style="color:#ffff00;">Movies Name</h1>
+                        <h1 class="mt-5" style="color:#ffff00;"><?=$moviename?></h1>
                         <div class="col-xl-12 col-md-12">
                                 <div class="card bg-light text-black mb-4">
                                     <div class="card-header">
-                                        <img class="card-img-top" src="dist/assets/img/ig-1.jpg" alt="Image" style="width:100% background-size:cover;">
+                                        <img class="card-img-top" src='<?=$imagepath?>' alt="Image" style="width:100% background-size:cover;">
                                     </div>
                                     <div class="card-body">
                                         <h2>Description</h2>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-                                            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-                                            it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic 
-                                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
-                                            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker 
-                                            including versions of Lorem Ipsum
+                                        <p><?=$description?>
                                             </p>
                                             <div class="row align-items-center justify-content-center">
                                                 <div class="livemovie">
@@ -79,7 +136,7 @@
             <div class="modal-body">
             <form id="liveForm">
                 <video width="100%" height="auto" controls>
-                    <source src="dist/assets/img/awmv.mp4" type="video/mp4">
+                    <source src='<?=$moviepath?>' type="video/mp4">
                     <source src="dist/assets/img/awmv.ogg" type="video/ogg">
                 </video>
             </form>
@@ -106,9 +163,9 @@
             <div class="modal-body">
             <form id="downloadForm">
                 <ul class="download" style="list-style:none;">
-                    <li><a href="#">Download Link</a></li>
-                    <li><a href="#">Download Link</a></li>
-                    <li><a href="#">Download Link</a></li>
+                    <li><a href=<?=$url1?>><?=$url1?></a></li>
+                    <li><a href=<?=$url1?>><?=$url2?></a></li>
+                    <li><a href=<?=$url1?>><?=$url3?></a></li>
                 </ul>
             </form>
         </div>
@@ -121,5 +178,8 @@
 })
 </script>
 
+
+<?php } ?>
+                              
 <?php include('user-footer.php');?>
 

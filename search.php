@@ -21,7 +21,7 @@ session_start();
 
             <ul class="navbar-nav">
               <?php
-              if (isset($_SESSION['id'])) {
+              if (isset($_SESSION['userid'])) {
                 if ($_SESSION['id'] == 1) {
                   echo "<li class='nav-item'> <a href='admin.php' class='nav-link'>Add movie</a> </li>";
                 }
