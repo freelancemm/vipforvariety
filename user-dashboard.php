@@ -70,7 +70,7 @@
             letter-spacing: 2px;
         }
         .modal-header{
-            background-color: #000000;
+            background-image: linear-gradient(90deg, #000000, #001f4d);
         }
         #downloadModal .modal-body{
             background-image: url(dist/assets/img/rm7012.jpg); 
@@ -153,8 +153,8 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-warning" id="liveModalLabel">Movie Play</h5>
-                <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title text-light" id="liveModalLabel">Movie Play</h5>
+                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -180,8 +180,8 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-warning" id="downloadModalLabel">Download Links</h5>
-                <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title text-light" id="downloadModalLabel">Download Links</h5>
+                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
