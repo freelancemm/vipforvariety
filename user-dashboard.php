@@ -23,9 +23,8 @@
         #downloadModal .modal-body{
             background-image: url(dist/assets/img/rm7012.jpg); 
             background-size: cover; 
-            width: 100%; 
+            max-width: 100%; 
             height: auto;
-            background-position: fixed;
         }
         #downloadForm{
             background-color: rgba(182, 217, 244, 0.3);
