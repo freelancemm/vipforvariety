@@ -21,18 +21,18 @@
     {  
          for($i=0; $i<$number; $i++)  
          {  
-              if(trim($_POST["url"][0] != ''))  
+              if(trim($_POST["url"][$i] != ''))  
               {  
-                  $url1=$_POST["url"][0];
+                  $url[$i]=$_POST["url"][$i];
               }
-              if(trim($_POST["url"][1] != ''))  
-              {  
-                  $url2=$_POST["url"][1];
-              }
-              if(trim($_POST["url"][2] != ''))  
-              {  
-                  $url3=$_POST["url"][2];
-              }   
+            //   if(trim($_POST["url"][1] != ''))  
+            //   {  
+            //       $url2=$_POST["url"][1];
+            //   }
+            //   if(trim($_POST["url"][2] != ''))  
+            //   {  
+            //       $url3=$_POST["url"][2];
+            //   }   
          }  
         // echo "Data Inserted";  
     }  
