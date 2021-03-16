@@ -115,7 +115,7 @@
     </style>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="dashboard.php">Variety Myanmar</a>
+            <a class="navbar-brand" href="https://www.varietymyanmar.org/">Variety Myanmar</a>
             <?php { 
                                             $id=$_SESSION['userid'];
                                             $query="SELECT * FROM vipusers WHERE userid='$id'";

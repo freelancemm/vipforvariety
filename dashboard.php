@@ -25,7 +25,7 @@
                                             ?>
 
                                         
-                                        <a class="small text-white stretched-link" href="#"><?=$count?></a>
+                                        <a class="small text-white stretched-link" href="http://localhost/vipforvariety/manage-movie.php"><?=$count?></a>
                                         <?php } ?>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>
@@ -46,7 +46,7 @@
                                             ?>
 
                                         
-                                        <a class="small text-white stretched-link" href="#"><?=$count?></a>
+                                        <a class="small text-white stretched-link" href="http://localhost/vipforvariety/manage-user.php"><?=$count?></a>
                                         <?php } ?>
                                         <!-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
                                     </div>

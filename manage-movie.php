@@ -16,7 +16,7 @@
                     <div class="container-fluid">
                         <div class="card-header">
                            <i class="fas fa-users mr-1"></i>
-                           User Lists
+                           Movie Lists
                            <a href="add-movie.php" class="btn btn-success">Add Movie</a>
                         </div>
                         <div class="card-body">
