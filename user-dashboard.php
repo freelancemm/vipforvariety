@@ -189,9 +189,11 @@
 
             <form id="downloadForm">
                 <ul class="download" style="list-style:none;">
+                    <li><a href='<?=$moviepath?>' download="<?=$moviename?>">Download From VIP Variety</a></li>
                     <li><a href=<?=$url1?>><?=$url1?></a></li>
                     <li><a href=<?=$url1?>><?=$url2?></a></li>
                     <li><a href=<?=$url1?>><?=$url3?></a></li>
+
                 </ul>
             </form>
 
