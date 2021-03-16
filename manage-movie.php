@@ -146,13 +146,16 @@
 function delmovie(){
 
     $.ajax({
-        type: 'GET',
+        type: 'Get',
         url: 'server.php',
         data: {delmovie: id},
         success: function(data) { 
                 window.location.href = 'manage-movie.php'
             },
-        error: function(xhr, ajaxOptions, thrownerror) { }
+        error: function(xhr, ajaxOptions, thrownerror) { 
+
+            window.location.href = 'manage-movie.php'
+        }
     });
        
 }      

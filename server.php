@@ -117,25 +117,39 @@ if(isset($_POST['add-movie']))
 }
 
 if (isset($_GET['delmovie'])) {
-
     $encptid=$_GET['delmovie'];
     $salt="vmsecret";
     $id_raw=base64_decode($encptid);
     $id=preg_replace(sprintf('/%s/', $salt), '', $id_raw);
 
-	
+    $results = mysqli_query($db, "SELECT * FROM uploadedmovies WHERE  movieid=$id");
+   // $result = mysqli_query($conn, $sql);
+
+    $row=mysqli_fetch_array($results);
+
+    $imagepath=$row['imagepath'];
+    $moviepath=$row['moviepath'];
+
+    unlink($imagepath);
+    unlink($moviepath);
+
+    
 
 
 	mysqli_query($conn,"DELETE FROM uploadedmovies WHERE movieid=$id");
 
 
-	header('location: manage-movie.php');
+	header('location: dashboard.php');
+
+
+
 }
 
 
 if (isset($_GET['deluser'])) {
 
     $id=$_GET['deluser'];
+    
     // $salt="vmsecret";
     // $id_raw=base64_decode($encptid);
     // $id=preg_replace(sprintf('/%s/', $salt), '', $id_raw);
