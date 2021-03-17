@@ -22,7 +22,7 @@
     $movieid=$_POST['movieid'];
 
     $moviename=mysqli_real_escape_string($conn,$_POST['moviename']);
-    $genre=mysqli_real_escape_string($conn,$_POST['genre']);
+    $size=mysqli_real_escape_string($conn,$_POST['size']);
     $releaseyear=mysqli_real_escape_string($conn,$_POST['releaseyear']);
     $runtime=mysqli_real_escape_string($conn,$_POST['runtime']);
     $description=mysqli_real_escape_string($conn,$_POST['description']);
@@ -34,19 +34,19 @@
     if($iseditimage=="on" && $iseditmovie=="on")
     {
 
-        $sql="UPDATE uploadedmovies SET moviename='$moviename',genre='$genre',releaseyear='$releaseyear',runtime='$runtime',description='$description', URL1='$url1', URL2='$url2', URL3='$url3', imagepath='$imagetarget' ,moviepath='$movietarget', image='$image', movie='$movie',  lastupdateddate='$lastupdateddate' WHERE movieid=$movieid";
+        $sql="UPDATE uploadedmovies SET moviename='$moviename',size='$size',releaseyear='$releaseyear',runtime='$runtime',description='$description', URL1='$url1', URL2='$url2', URL3='$url3', imagepath='$imagetarget' ,moviepath='$movietarget', image='$image', movie='$movie',  lastupdateddate='$lastupdateddate' WHERE movieid=$movieid";
     }
     else if($iseditimage=="on" && $iseditmovie=="" )
     {
-        $sql="UPDATE uploadedmovies SET moviename='$moviename',genre='$genre',releaseyear='$releaseyear',runtime='$runtime',description='$description', URL1='$url1', URL2='$url2', URL3='$url3', imagepath='$imagetarget' , image='$image',  lastupdateddate='$lastupdateddate' WHERE movieid=$movieid";
+        $sql="UPDATE uploadedmovies SET moviename='$moviename',size='$size',releaseyear='$releaseyear',runtime='$runtime',description='$description', URL1='$url1', URL2='$url2', URL3='$url3', imagepath='$imagetarget' , image='$image',  lastupdateddate='$lastupdateddate' WHERE movieid=$movieid";
     }
     else if($iseditimage=="" && $iseditmovie=="on")
     {
-        $sql="UPDATE uploadedmovies SET moviename='$moviename',genre='$genre',releaseyear='$releaseyear',runtime='$runtime',description='$description', URL1='$url1', URL2='$url2', URL3='$url3', moviepath='$movietarget', movie='$movie',  lastupdateddate='$lastupdateddate' WHERE movieid=$movieid";
+        $sql="UPDATE uploadedmovies SET moviename='$moviename',size='$size',releaseyear='$releaseyear',runtime='$runtime',description='$description', URL1='$url1', URL2='$url2', URL3='$url3', moviepath='$movietarget', movie='$movie',  lastupdateddate='$lastupdateddate' WHERE movieid=$movieid";
     }
     else
     {
-        $sql="UPDATE uploadedmovies SET moviename='$moviename',genre='$genre',releaseyear='$releaseyear',runtime='$runtime',description='$description', URL1='$url1', URL2='$url2', URL3='$url3', lastupdateddate='$lastupdateddate' WHERE movieid=$movieid";
+        $sql="UPDATE uploadedmovies SET moviename='$moviename',size='$size',releaseyear='$releaseyear',runtime='$runtime',description='$description', URL1='$url1', URL2='$url2', URL3='$url3', lastupdateddate='$lastupdateddate' WHERE movieid=$movieid";
     }
 
 

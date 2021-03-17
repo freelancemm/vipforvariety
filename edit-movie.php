@@ -29,7 +29,7 @@
                            $row = mysqli_fetch_array($results);
                            
                            $moviename=$row['moviename'];
-                           $genre=$row['genre'];
+                           $size=$row['size'];
                            $releaseyear=$row['releaseyear'];
                            $runtime=$row['runtime'];
                            $description=$row['description'];
@@ -49,19 +49,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3" for="genre">Genres:</label>
-                                    <div class="col-sm-9"> 
-                                        <select id="genre" class="form-control" name="genre" required=""  >
-                                            <option value='<?=$genre?>'><?=$genre?></option>
-                                            <option value="action">Action</option>
-                                            <option value="comedy">Comedy</option>
-                                            <option value="drama">Drama</option>
-                                            <option value="fantasy">Fantasy</option>
-                                            <option value="horror">Horror</option>
-                                            <option value="mystery">Mystery</option>
-                                            <option value="romance">Romance</option>
-                                            <option value="thriller">Thriller</option>
-                                        </select>
+                                    <label class="control-label col-sm-3" for="releaseyear">Size:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="size" placeholder="Enter Release Year.." name="size" required=""value='<?=$size?>'>
                                     </div>
                                 </div>
                                 <div class="form-group">

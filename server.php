@@ -93,7 +93,7 @@ if(isset($_POST['add-movie']))
     $movietarget="uploadmovies/".basename($_FILES['movie']['name']);
 
     $moviname=mysqli_real_escape_string($conn,$_POST['moviename']);
-    $genre=mysqli_real_escape_string($conn,$_POST['genre']);
+    $size=mysqli_real_escape_string($conn,$_POST['size']);
     $releaseyear=mysqli_real_escape_string($conn,$_POST['releaseyear']);
     $runtime=mysqli_real_escape_string($conn,$_POST['runtime']);
     $description=mysqli_real_escape_string($conn,$_POST['description']);
@@ -104,7 +104,7 @@ if(isset($_POST['add-movie']))
 
    
     
-    $sql="INSERT into uploadedmovies(moviename,genre,releaseyear,runtime,description,imagepath,moviepath,image,movie,lastupdateddate) VALUES('$moviname','$genre','$releaseyear','$runtime','$description','$imagetarget','$movietarget','$image','$movie','$lastupdateddate')";
+    $sql="INSERT into uploadedmovies(moviename,size,releaseyear,runtime,description,imagepath,moviepath,image,movie,lastupdateddate) VALUES('$moviname','$size','$releaseyear','$runtime','$description','$imagetarget','$movietarget','$image','$movie','$lastupdateddate')";
 
     $result = mysqli_query($conn, $sql);
 

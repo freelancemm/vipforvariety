@@ -37,7 +37,7 @@
                            $row = mysqli_fetch_array($results);
                            
                            $moviename=$row['moviename'];
-                           $genre=$row['genre'];
+                           $size=$row['size'];
                            $releaseyear=$row['releaseyear'];
                            $runtime=$row['runtime'];
                            $description=$row['description'];
