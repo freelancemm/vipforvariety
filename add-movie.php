@@ -45,7 +45,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="moviename">Size:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="size" placeholder="Enter movie name.." name="size" required="">
+                                        <input type="text" class="form-control" id="size" placeholder="Enter movie size.." name="size" required="">
                                     </div>
                                 </div>
                               
