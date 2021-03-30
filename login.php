@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Login||Admin</title>
+        <title>Login||User</title>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -24,7 +24,7 @@
     
     <div class="form-toggle">
         <button id="login-toggle" onclick="toggleLogin()">Member Log In</button>
-        <button id="signup-toggle" onclick="toggleSignup()">View Plans</button>
+        <button id="signup-toggle" onclick="toggleSignup()">Register</button>
     </div>
 
     <div id="login-form">
@@ -43,12 +43,8 @@
 
     <div id="signup-form">
         <form>
-           <h1>VIP Plans</h1>
-           <p>Plan 1</p>
-           <p>Plan 2</p>
-           <p>Plan 3</p>
-            <button type="button" class="btn signup"><i class="fa fa-spinner fa-pulse"></i> Contact
-          </button> 
+          <center> <h1>Join with Us</h1> <center>
+            <button type="button" class="btn signup"><i class="fa fa-spinner fa-pulse"></i> Contact </button> 
             
         </form>
     </div>

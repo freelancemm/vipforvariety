@@ -120,7 +120,7 @@
                                             </p>
                                             <div class="row align-items-center justify-content-center">
                                                 <div class="livemovie">
-                                                    <a href="#" data-toggle="modal" data-target="#liveModal"><button type="button" class="vm-livemovie text-white"><i class="fas fa-film"style="margin-right: 10px;"></i>Live Movie</button></a>
+                                                    <a href="#" data-toggle="modal" data-target="#liveModal"><button type="button" class="vm-livemovie text-white"><i class="fas fa-film"style="margin-right: 10px;"></i>Watch</button></a>
                                                 </div>
                                                 <!-- <div class="download">
                                                     <a href="#" data-toggle="modal" data-target="#downloadModal"><button type="button" class="vm-download text-white" ><i class="fas fa-download" style="margin-right: 10px;"></i>Download</button></a>
@@ -192,7 +192,7 @@
 
             <form id="downloadForm">
                 <ul class="download" style="list-style:none;">
-                    <li><a href='<?=$moviepath?>' download="<?=$moviename?>">Download From VIP Variety</a></li>
+                    <li><a href='<?=$moviepath?>' download="<?=$moviename?>">VM Server</a></li>
                     <li><a href=<?=$url1?>><?=$url1?></a></li>
                     <li><a href=<?=$url1?>><?=$url2?></a></li>
                     <li><a href=<?=$url1?>><?=$url3?></a></li>
