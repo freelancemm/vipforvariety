@@ -122,8 +122,11 @@
                                                 <div class="livemovie">
                                                     <a href="#" data-toggle="modal" data-target="#liveModal"><button type="button" class="vm-livemovie text-white"><i class="fas fa-film"style="margin-right: 10px;"></i>Live Movie</button></a>
                                                 </div>
-                                                <div class="download">
+                                                <!-- <div class="download">
                                                     <a href="#" data-toggle="modal" data-target="#downloadModal"><button type="button" class="vm-download text-white" ><i class="fas fa-download" style="margin-right: 10px;"></i>Download</button></a>
+                                                </div> -->
+                                                <div class="download">
+                                                    <a href='<?=$moviepath?>' download="<?=$moviename?>" ><button type="button" class="vm-download text-white" ><i class="fas fa-download" style="margin-right: 10px;"></i>Download</button></a>
                                                 </div>
                                             </div>
                                     </div>
