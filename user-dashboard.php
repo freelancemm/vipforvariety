@@ -122,12 +122,12 @@
                                                 <div class="livemovie">
                                                     <a href="#" data-toggle="modal" data-target="#liveModal"><button type="button" class="vm-livemovie text-white"><i class="fas fa-film"style="margin-right: 10px;"></i>Watch</button></a>
                                                 </div>
-                                                <!-- <div class="download">
-                                                    <a href="#" data-toggle="modal" data-target="#downloadModal"><button type="button" class="vm-download text-white" ><i class="fas fa-download" style="margin-right: 10px;"></i>Download</button></a>
-                                                </div> -->
                                                 <div class="download">
-                                                    <a href='<?=$moviepath?>' download="<?=$moviename?>" ><button type="button" class="vm-download text-white" ><i class="fas fa-download" style="margin-right: 10px;"></i>Download</button></a>
+                                                    <a href="#" data-toggle="modal" data-target="#downloadModal"><button type="button" class="vm-download text-white" ><i class="fas fa-download" style="margin-right: 10px;"></i>Download</button></a>
                                                 </div>
+                                                <!-- <div class="download">
+                                                    <a href='' download="" ><button type="button" class="vm-download text-white" ><i class="fas fa-download" style="margin-right: 10px;"></i>Download</button></a>
+                                                </div> -->
                                             </div>
                                     </div>
                                     <!-- <div class="card-footer">
@@ -180,10 +180,10 @@
 
 <!-- download modal form -->
 <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog  modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-light" id="downloadModalLabel">Download Links</h5>
+                <h5 class="modal-title text-light" id="downloadModalLabel"><i class="fas fa-download" style="margin-right:10px;"></i>Download Links</h5>
                 <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -193,9 +193,16 @@
             <form id="downloadForm">
                 <ul class="download" style="list-style:none;">
                     <li><a href='<?=$moviepath?>' download="<?=$moviename?>">VM Server</a></li>
-                    <li><a href=<?=$url1?>><?=$url1?></a></li>
-                    <li><a href=<?=$url1?>><?=$url2?></a></li>
-                    <li><a href=<?=$url1?>><?=$url3?></a></li>
+                    <li><img src="https://www.google.com/s2/favicons?domain=upstream.to" alt="upstream.to" style="margin-right:10px;"><a href=<?=$url1?>><?=$url1?></a></li>
+                    <li><img src="https://www.google.com/s2/favicons?domain=mega.nz" alt="mega.nz" style="margin-right:10px;"><a href=<?=$url1?>><?=$url2?></a></li>
+                    <li><img src="https://www.google.com/s2/favicons?domain=yoteshinportal.cc" alt="yoteshinportal.cc" style="margin-right:10px;"><a href=<?=$url1?>><?=$url3?></a></li>
+                    <li><img src="https://www.google.com/s2/favicons?domain=VIP Links" alt="VIP Links" style="margin-right:10px;"><a href=<?=$url1?>><?=$url1?></a></li>
+                    <li><img src="https://www.google.com/s2/favicons?domain=usersdrive.com" alt="userdrive.com" style="margin-right:10px;"><a href=<?=$url1?>><?=$url2?></a></li>
+                    <li><img src="https://www.google.com/s2/favicons?domain=domain=megaup.net" alt="megaup.net" style="margin-right:10px;"><a href=<?=$url1?>><?=$url3?></a></li>
+                    <li><img src="https://www.google.com/s2/favicons?domain=domain=veryfiles.com" alt="Veryfiles" style="margin-right:10px;"><a href=<?=$url1?>><?=$url1?></a></li>
+                    <li><img src="https://www.google.com/s2/favicons?domain=mega.nz" alt="mega.nz" style="margin-right:10px;"><a href=<?=$url1?>><?=$url2?></a></li>
+                    <li><img src="https://www.google.com/s2/favicons?domain=yoteshinportal.cc" alt="yoteshinportal.cc" style="margin-right:10px;"><a href=<?=$url1?>><?=$url3?></a></li>
+                    <li><img src="https://www.google.com/s2/favicons?domain=mega.nz" alt="mega.nz" style="margin-right:10px;"><a href=<?=$url1?>><?=$url2?></a></li>
 
                 </ul>
             </form>
