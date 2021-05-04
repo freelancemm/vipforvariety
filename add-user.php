@@ -13,7 +13,7 @@
                                 Register Form
                             </div>
                             <div class="card-body">
-                            <form class="form-horizontal" action="add-user.php"  method="post">
+                            <form class="form-horizontal" id="AddUser">
                                
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="username">Username:</label>
@@ -47,6 +47,58 @@
                                     </div>
                                 </div>
                             </form>
-                    </div>                       
+                    </div>       
+<script>
+jQuery(document).on('submit','#AddUser',function(e){
+
+        e.preventDefault();
+        $.ajax({
+        
+        type:'POST',
+        url:'adduser.php',
+        data:new FormData(this),
+        contentType:false,
+        cache:false,
+        processData:false,
+        dataType:'json',
+
+        beforeSend:function(){
+      
+            $(".spinner").show();
+            $('#AddUser').css("opacity",".5");
+
+
+
+        },
+        success:function(json){
+
+            if(json=='success')
+            {
+                $(".spinner").hide();
+                $('#AddUser').css("opacity","1");
+                $('#AddUser')[0].reset();
+
+            $message="Successfully Added";
+            $type="success";
+            shownoti($type,$message);
+
+            }
+            else
+            {
+               $message=json;
+               $type="warning";
+               shownoti($type,$message);
+               $(".spinner").hide();
+               $('#AddUser').css("opacity","1");
+              
+
+            }
+          
+        }
+
+        })
+
+})
+</script>                
 
 <?php include('footer.php');?>

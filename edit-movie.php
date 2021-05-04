@@ -25,7 +25,7 @@
                            $id_raw=base64_decode($encptid);
                            $id=preg_replace(sprintf('/%s/', $salt), '', $id_raw);
                            { 
-                           $results = mysqli_query($db, "SELECT * FROM uploadedmovies WHERE movieid=$id"); 
+                           $results = mysqli_query($db, "SELECT * FROM uploadedmovies INNER JOIN  movieurls on uploadedmovies.movieid=movieurls.movieid WHERE uploadedmovies.movieid=$id"); 
                            $row = mysqli_fetch_array($results);
                            
                            $moviename=$row['moviename'];
@@ -34,9 +34,17 @@
                            $runtime=$row['runtime'];
                            $description=$row['description'];
                            $image=$row['image'];
+                           $movie=$row['moviepath'];
                            $url1=$row['URL1'];
                            $url2=$row['URL2'];
                            $url3=$row['URL3'];
+                           $url4=$row['URL4'];
+                           $url5=$row['URL5'];
+                           $url6=$row['URL6'];
+                           $url7=$row['URL7'];
+                           $url8=$row['URL8'];
+                           $url9=$row['URL9'];
+                           $url10=$row['URL10'];
                       
                       
                       ?> 
@@ -73,21 +81,69 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3" for="url1">Other URL1:</label>
+                                    <label class="control-label col-sm-3" for="moviename">Movie Embedded Code:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"  placeholder="Enter Embedded Code.." name="movie" id="movie" required="" value='<?=$movie?>'>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="url1">URL1:</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="url1" placeholder="Enter URL1" name="url1" value='<?=$url1?>'>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3" for="moviename">Other URL2:</label>
+                                    <label class="control-label col-sm-3" for="moviename">URL2:</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control"  id="url2" placeholder="Enter URL2" name="url2" value='<?=$url2?>' >
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3" for="moviename">Other URL3:</label>
+                                    <label class="control-label col-sm-3" for="moviename">URL3:</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control"  id="url3" placeholder="Enter URL3" name="url3" value='<?=$url3?>' >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="moviename">URL4:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"  id="url4" placeholder="Enter URL4" name="url4" value='<?=$url4?>' >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="moviename">URL5:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"  id="url5" placeholder="Enter URL5" name="url5" value='<?=$url5?>' >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="moviename">URL6:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"  id="url6" placeholder="Enter URL5" name="url6" value='<?=$url6?>' >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="moviename">URL7:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"  id="url7" placeholder="Enter URL7" name="url7" value='<?=$url7?>' >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="moviename">URL8:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"  id="url8" placeholder="Enter URL8" name="url8" value='<?=$url8?>' >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="moviename">URL9:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"  id="url9" placeholder="Enter URL9" name="url9" value='<?=$url9?>' >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="moviename">URL10:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control"  id="url10" placeholder="Enter URL10" name="url10" value='<?=$url10?>' >
                                     </div>
                                 </div>
                                 <input type="checkbox"  style="margin-left: 20px; margin-top:20px;" id="editimage" name="editimage"  onclick="EditImage()"><p style="margin-left:40px; margin-top:-20px;font-weight:500">Edit Image</p>
@@ -101,7 +157,7 @@
                                     </div>
                                 </div>
                                 </div>
-                                <input type="checkbox"  style="margin-left: 20px; margin-top:20px;" id="editmovie" name="editmovie"  onclick="EditMovie()"><p style="margin-left:40px; margin-top:-20px;font-weight:500">Edit Movie</p>
+                                <!-- <input type="checkbox"  style="margin-left: 20px; margin-top:20px;" id="editmovie" name="editmovie"  onclick="EditMovie()"><p style="margin-left:40px; margin-top:-20px;font-weight:500">Edit Movie</p>
                                 <input id='ischeckedmovie' type='hidden' value="off" name='ischeckedmovie'>
                                 <div class="edmovie" id="edmovie" style="display: none;">
                                 <div class="form-group">
@@ -110,7 +166,7 @@
                                         <input type="file" name="movie" id="movie" accept="video/*" >
                                     </div>
                                 </div>
-                                </div>
+                                </div> -->
                                
                                 <!-- <div class="form-group">
                                     <label class="control-label col-sm-3" for="movie">Upload Video:</label>
@@ -165,17 +221,17 @@ var editmovie=document.getElementById("editmovie");
   }
 }
 
-  function EditMovie() {
+//   function EditMovie() {
   
-if (editmovie.checked == true) {
-  edmovie.style.display="block";
-  document.getElementById('ischeckedmovie').value="on"; 
+// if (editmovie.checked == true) {
+//   edmovie.style.display="block";
+//   document.getElementById('ischeckedmovie').value="on"; 
   
-} else {
-    edmovie.style.display="none";
-    document.getElementById('ischeckedmovie').value="off"; 
-}
-}
+// } else {
+//     edmovie.style.display="none";
+//     document.getElementById('ischeckedmovie').value="off"; 
+// }
+// }
 
 
 jQuery(document).on('submit', '#EditMovie', function(e){

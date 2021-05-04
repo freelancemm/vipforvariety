@@ -33,7 +33,7 @@
                            $id_raw=base64_decode($encptid);
                            $id=preg_replace(sprintf('/%s/', $salt), '', $id_raw);
                            { 
-                           $results = mysqli_query($db, "SELECT * FROM uploadedmovies WHERE movieid=$id"); 
+                           $results = mysqli_query($db, "SELECT * FROM uploadedmovies INNER JOIN  movieurls on uploadedmovies.movieid=movieurls.movieid WHERE uploadedmovies.movieid=$id"); 
                            $row = mysqli_fetch_array($results);
                            
                            $moviename=$row['moviename'];
@@ -46,8 +46,136 @@
                            $url1=$row['URL1'];
                            $url2=$row['URL2'];
                            $url3=$row['URL3'];
+                           $url4=$row['URL4'];
+                           $url5=$row['URL5'];
+                           $url6=$row['URL6'];
+                           $url7=$row['URL7'];
+                           $url8=$row['URL8'];
+                           $url9=$row['URL9'];
+                           $url10=$row['URL10'];
 
-                          
+                           if($url1!=null)
+                           {
+                           $url1_icon=getIconURL($url1);
+                           $url1_name=getURLName($url1);
+                           $url1_display="block";
+                         
+                           }
+                           else
+                           {
+                            $url1_display="none";
+                           }
+                           if($url2!=null)
+                           {
+                           $url2_icon=getIconURL($url2);
+                           $url2_name=getURLName($url2);
+                           $url2_display="block";
+                           }
+                           else
+                           {
+                            $url2_display="none";
+                           }
+                           if($url3!=null)
+                           {
+                           $url3_icon=getIconURL($url3);
+                           $url3_name=getURLName($url3);
+                           $url3_display="block";
+                           }
+                           else
+                           {
+                            $url3_display="none";
+                           }
+                           if($url4!=null)
+                           {
+                           $url4_icon=getIconURL($url4);
+                           $url4_name=getURLName($url4);
+                           $url4_display="block";
+                           }
+                           else
+                           {
+                            $url4_display="none";
+                           }
+                           if($url5!=null)
+                           {
+                           $url5_icon=getIconURL($url5);
+                           $url5_name=getURLName($url5);
+                           $url5_display="block";
+                           }
+                           else
+                           {
+                            $url5_display="none";
+                           }
+                           if($url6!=null)
+                           {
+                           $url6_icon=getIconURL($url6);
+                           $url6_name=getURLName($url6);
+                           $url6_display="block";
+                           }
+                           else
+                           {
+                            $url6_display="none";
+                           }
+                           if($url7!=null)
+                           {
+                           $url7_icon=getIconURL($url7);
+                           $url7_name=getURLName($url7);
+                           $url7_display="block";
+                           }
+                           else
+                           {
+                            $url7_display="none";
+                           }
+                           if($url8!=null)
+                           {
+                           $url8_icon=getIconURL($url8);
+                           $url8_name=getURLName($url8);
+                           $url8_display="block";
+                           }
+                           else
+                           {
+                            $url8_display="none";
+                           }
+                           if($url9!=null)
+                           {
+                           $url9_icon=getIconURL($url9);
+                           $url9_name=getURLName($url9);
+                           $url9_display="block";
+                           }
+                           else
+                           {
+                            $url9_display="none";
+                           }
+                           if($url10!=null)
+                           {
+                           $url10_icon=getIconURL($url10);
+                           $url10_name=getURLName($url10);
+                           $url10_display="block";
+                           }
+                           else
+                           {
+                            $url10_display="none";
+                           }
+                           
+
+                           function getIconURL($original_url){
+
+                            $icon_url=(explode('/',$original_url,-1));
+
+                            $icon="https://www.google.com/s2/favicons?domain=".$icon_url[2];
+
+                            return $icon;
+
+                           }
+
+                           function getURLName($url){
+
+                            $icon_url=(explode('/',$url,-1));
+
+                            $name=(explode('.', $icon_url[2],1));
+
+                            return ucwords($name[0]);
+
+                           }
                       
                       
                       ?> 
@@ -163,10 +291,9 @@
             </div>
             <div class="modal-body">
             <form id="liveForm">
-                <video width="100%" height="auto" controls>
-                    <source src='<?=$moviepath?>' type="video/mp4">
-                    <source src="dist/assets/img/awmv.ogg" type="video/ogg">
-                </video>
+           
+
+            <div style="position:relative;padding-bottom:56%;padding-top:20px;height:0;"><IFRAME SRC="<?=$moviepath?>" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH=640 HEIGHT=360 allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></IFRAME></div>
             </form>
         </div>
     </div>
@@ -192,18 +319,30 @@
 
             <form id="downloadForm">
                 <ul class="download" style="list-style:none;">
-                    <li><a href='<?=$moviepath?>' download="<?=$moviename?>">VM Server</a></li>
-                    <li><img src="https://www.google.com/s2/favicons?domain=upstream.to" alt="upstream.to" style="margin-right:10px;"><a href=<?=$url1?>><?=$url1?></a></li>
-                    <li><img src="https://www.google.com/s2/favicons?domain=mega.nz" alt="mega.nz" style="margin-right:10px;"><a href=<?=$url1?>><?=$url2?></a></li>
-                    <li><img src="https://www.google.com/s2/favicons?domain=yoteshinportal.cc" alt="yoteshinportal.cc" style="margin-right:10px;"><a href=<?=$url1?>><?=$url3?></a></li>
-                    <li><img src="https://www.google.com/s2/favicons?domain=VIP Links" alt="VIP Links" style="margin-right:10px;"><a href=<?=$url1?>><?=$url1?></a></li>
-                    <li><img src="https://www.google.com/s2/favicons?domain=usersdrive.com" alt="userdrive.com" style="margin-right:10px;"><a href=<?=$url1?>><?=$url2?></a></li>
-                    <li><img src="https://www.google.com/s2/favicons?domain=domain=megaup.net" alt="megaup.net" style="margin-right:10px;"><a href=<?=$url1?>><?=$url3?></a></li>
-                    <li><img src="https://www.google.com/s2/favicons?domain=domain=veryfiles.com" alt="Veryfiles" style="margin-right:10px;"><a href=<?=$url1?>><?=$url1?></a></li>
-                    <li><img src="https://www.google.com/s2/favicons?domain=mega.nz" alt="mega.nz" style="margin-right:10px;"><a href=<?=$url1?>><?=$url2?></a></li>
-                    <li><img src="https://www.google.com/s2/favicons?domain=yoteshinportal.cc" alt="yoteshinportal.cc" style="margin-right:10px;"><a href=<?=$url1?>><?=$url3?></a></li>
-                    <li><img src="https://www.google.com/s2/favicons?domain=mega.nz" alt="mega.nz" style="margin-right:10px;"><a href=<?=$url1?>><?=$url2?></a></li>
+                    <!-- <li><a href='<?=$moviepath?>' download="<?=$moviename?>">VM Server</a></li> -->
 
+                   
+                    <li style="display: <?=$url1_display?>;"><img  src='<?=$url1_icon?>' alt="icon" style="margin-right:10px;"><a target="_blank"   href=<?=$url1?>><?=$url1_name?></a></li>
+
+                    <li style="display: <?=$url2_display?>;"><img  src='<?=$url2_icon?>' alt="icon" style="margin-right:10px;"><a target="_blank"   href=<?=$url2?>><?=$url2_name?></a></li>
+
+                    <li style="display: <?=$url3_display?>;"><img  src='<?=$url3_icon?>' alt="icon" style="margin-right:10px;"><a target="_blank"   href=<?=$url3?>><?=$url3_name?></a></li>
+
+                    <li style="display: <?=$url4_display?>;"><img  src='<?=$url4_icon?>' alt="icon" style="margin-right:10px;"><a target="_blank"   href=<?=$url4?>><?=$url4_name?></a></li>
+
+                    <li style="display: <?=$url5_display?>;"><img  src='<?=$url5_icon?>' alt="icon" style="margin-right:10px;"><a target="_blank"   href=<?=$url5?>><?=$url5_name?></a></li>
+
+                    <li style="display: <?=$url6_display?>;"><img  src='<?=$url6_icon?>' alt="icon" style="margin-right:10px;"><a target="_blank"   href=<?=$url6?>><?=$url6_name?></a></li>
+
+                    <li style="display: <?=$url7_display?>;"><img  src='<?=$url7_icon?>' alt="icon" style="margin-right:10px;"><a target="_blank"   href=<?=$url7?>><?=$url7_name?></a></li>
+
+                    <li style="display: <?=$url8_display?>;"><img  src='<?=$url8_icon?>' alt="icon" style="margin-right:10px;"><a target="_blank"   href=<?=$url8?>><?=$url8_name?></a></li>
+
+                    <li style="display: <?=$url9_display?>;"><img  src='<?=$url9_icon?>' alt="icon" style="margin-right:10px;"><a target="_blank"   href=<?=$url9?>><?=$url9_name?></a></li>
+
+                    <li style="display: <?=$url10_display?>;"><img  src='<?=$url10_icon?>' alt="icon" style="margin-right:10px;"><a target="_blank"   href=<?=$url10?>><?=$url10_name?></a></li>
+                   
+                  
                 </ul>
             </form>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2021 at 03:16 PM
+-- Generation Time: May 04, 2021 at 03:50 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -45,25 +45,58 @@ INSERT INTO `admins` (`id`, `username`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `movieurls`
+--
+
+CREATE TABLE `movieurls` (
+  `url_id` int(11) NOT NULL,
+  `movieid` int(11) NOT NULL,
+  `URL1` varchar(500) DEFAULT NULL,
+  `URL2` varchar(500) DEFAULT NULL,
+  `URL3` varchar(500) DEFAULT NULL,
+  `URL4` varchar(500) DEFAULT NULL,
+  `URL5` varchar(500) DEFAULT NULL,
+  `URL6` varchar(500) DEFAULT NULL,
+  `URL7` varchar(500) DEFAULT NULL,
+  `URL8` varchar(500) DEFAULT NULL,
+  `URL9` varchar(500) DEFAULT NULL,
+  `URL10` varchar(500) DEFAULT NULL,
+  `lastupdateddate` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `movieurls`
+--
+
+INSERT INTO `movieurls` (`url_id`, `movieid`, `URL1`, `URL2`, `URL3`, `URL4`, `URL5`, `URL6`, `URL7`, `URL8`, `URL9`, `URL10`, `lastupdateddate`) VALUES
+(9, 140, 'https://yoteshinportal.cc/drive/vm-running-man-ep-553-mp-4', 'https://mega.nz/file/bdFnnQwB#fEcoGYWJQzibcp6Lw_7iMcqDDWiNhzQxETMCmGK0Cbs', 'https://www.datbu.com/5gqjuoz0jsyp.html', 'https://mega.nz/file/DYtGnLrI#eVdxGfpLLZUrC2aADq3UWQZOQqQ4yb0gFoVNxS4_a4M', '', '', '', '', '', '', '2021-05-04 08:19:11');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `uploadedmovies`
 --
 
 CREATE TABLE `uploadedmovies` (
   `movieid` int(11) NOT NULL,
   `moviename` varchar(255) NOT NULL,
-  `genre` varchar(255) NOT NULL,
+  `size` varchar(255) NOT NULL,
   `releaseyear` varchar(255) NOT NULL,
   `runtime` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `URL1` varchar(1000) DEFAULT NULL,
-  `URL2` varchar(1000) DEFAULT NULL,
-  `URL3` varchar(1000) DEFAULT NULL,
   `imagepath` varchar(1000) NOT NULL,
   `moviepath` varchar(1000) NOT NULL,
   `image` varchar(255) NOT NULL,
   `movie` varchar(255) NOT NULL,
   `lastupdateddate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `uploadedmovies`
+--
+
+INSERT INTO `uploadedmovies` (`movieid`, `moviename`, `size`, `releaseyear`, `runtime`, `description`, `imagepath`, `moviepath`, `image`, `movie`, `lastupdateddate`) VALUES
+(140, 'tom and jerry', '1 GB', '2021', '02:32:36', 'movie upload test', 'uploadimages/Aya_logo.png', 'https://www.datbu.com/embed-w4ifu568zasq.html', 'Aya_logo.png', 'https://www.datbu.com/embed-w4ifu568zasq.html', '2021-05-04 01:49:11');
 
 -- --------------------------------------------------------
 
@@ -112,10 +145,9 @@ CREATE TABLE `vipusers` (
 --
 
 INSERT INTO `vipusers` (`userid`, `username`, `email`, `password`, `accexpiredate`, `lastupdateddate`) VALUES
-(1, 'Aung Aung', 'test@gmail.com', '12345', '2021-03-16', '2021-03-14 17:30:00'),
-(2, 'test test', 'test2@gmail.com', '12345', '2021-02-23', '2021-02-23 17:30:00'),
-(3, 'Aung Aung', 'test2t@gmail.com', '12345', '2021-02-24', '2021-02-23 17:30:00'),
-(4, 'Aung Aung', 'test3@gmail.com', '12345', '2021-02-26', '2021-02-23 17:30:00');
+(3, 'Aung Aung', 'test2tt@gmail.com', '12345', '2021-02-24', '2021-04-30 17:30:00'),
+(4, 'Aung Aung', 'test3@gmail.com', '12345', '2021-02-26', '2021-02-23 17:30:00'),
+(6, 'test', 'aung@gmail.com', 'test', '2021-05-14', '2021-04-30 17:30:00');
 
 --
 -- Indexes for dumped tables
@@ -126,6 +158,13 @@ INSERT INTO `vipusers` (`userid`, `username`, `email`, `password`, `accexpiredat
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `movieurls`
+--
+ALTER TABLE `movieurls`
+  ADD PRIMARY KEY (`url_id`),
+  ADD KEY `movieid` (`movieid`);
 
 --
 -- Indexes for table `uploadedmovies`
@@ -158,10 +197,16 @@ ALTER TABLE `admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `movieurls`
+--
+ALTER TABLE `movieurls`
+  MODIFY `url_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `uploadedmovies`
 --
 ALTER TABLE `uploadedmovies`
-  MODIFY `movieid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `movieid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT for table `user1`
@@ -173,11 +218,17 @@ ALTER TABLE `user1`
 -- AUTO_INCREMENT for table `vipusers`
 --
 ALTER TABLE `vipusers`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `movieurls`
+--
+ALTER TABLE `movieurls`
+  ADD CONSTRAINT `movieid` FOREIGN KEY (`movieid`) REFERENCES `uploadedmovies` (`movieid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user1`

@@ -87,10 +87,16 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="control-label col-sm-3" for="movie">Upload Movie:</label>
                                     <div class="col-sm-9">
                                         <input type="file" name="movie" id="movie" accept="video/*">
+                                    </div>
+                                </div> -->
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="moviename">Movie Embedded Code:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="moviename" placeholder="Enter Embedded Code.." name="movie" id="movie" required="">
                                     </div>
                                 </div>
                                 <!-- <div class="form-group">
@@ -157,30 +163,41 @@
                 dataType:'json',
  
                 beforeSend: function(){
-                    $('.btn btn-info').attr("disabled","disabled");
-                    $('.progress-bar').show();
-                    $('#addmovie').css("opacity",".5");
-                    $("#file-progress-bar").width('0%');
+                        $(".spinner").show();
+                        $('#addmovie').css("opacity",".5");
                 },
  
                 success: function(json){
                     if(json == 'success'){
-                        $('#addmovie')[0].reset();
-                        $('#uploaded_file').html('<p style="color:#28A74B;">File has uploaded successfully!</p>');
 
-                        $('.btn btn-info').attr("enabled","enabled");
+                        $(".spinner").hide();
                         $('#addmovie').css("opacity","1");
-                     $message="Uploaded Successfully";
-                     $type="success";
-                    shownoti($type,$message);
-                    $('.progress-bar').hide();
-                    $('#uploaded_file').html('');
-                    $('#row'+2+'').remove();  
-                    $('#row'+3+'').remove();  
-                    i=1;
+                        $('#addmovie')[0].reset();
+                        $('#row'+2+'').remove();  
+                        $('#row'+3+'').remove(); 
+                        $('#row'+4+'').remove();  
+                        $('#row'+5+'').remove();  
+                        $('#row'+6+'').remove();  
+                        $('#row'+7+'').remove();  
+                        $('#row'+8+'').remove();  
+                        $('#row'+9+'').remove();  
+                        $('#row'+10+'').remove();   
+                        i=1;
+                        
+                        $message="Uploaded Successfully";
+                        $type="success";
+                        shownoti($type,$message);
+                  
                    
                     }else if(json == 'failed'){
-                        $('#uploaded_file').html('<p style="color:#EA4335;">Please select a valid file to upload.</p>');
+
+                        $(".spinner").hide();
+                        $('#addmovie').css("opacity","1");
+                        
+                        $message="Upload Fail";
+                        $type="error";
+                        shownoti($type,$message);
+                      
                     }
                   
                 },
@@ -209,7 +226,7 @@
  $(document).ready(function(){  
    
       $('#add').click(function(){  
-          if(i<3)
+          if(i<10)
           {
            i++;  
            $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="url[]" placeholder="Enter URL" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>'); 

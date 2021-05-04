@@ -11,41 +11,7 @@ $errors=array();
 //connect to the database
 $db=mysqli_connect("localhost","root","","vipuser");
 $conn=mysqli_connect("localhost","root","","vipuser") or die($conn);
-if(isset($_POST ['register'])){
 
-$username=mysqli_real_escape_string($conn,$_POST['username']);
-$email=mysqli_real_escape_string($conn,$_POST['email']);
-$password=mysqli_real_escape_string($conn,$_POST['password']);
-$accexpiredate=mysqli_real_escape_string($conn,$_POST['accexpiredate']);
-$lastupdateddate=date("Y/m/d");
-
-
-$sql= "SELECT * FROM vipusers WHERE email='$email'";
-
-$result = mysqli_query($conn, $sql);
-
-// ensure that form fields are filled properly
-
-if (mysqli_num_rows($result) > 0) {
-
-array_push($errors, "Sorry... email is already registered please choose another" );
-
-}
-
-
-
-// if there are no errors ,save user to database
-
-if (count($errors)==0){
-   // $password = md5($password); //encrypt password before storing database(security)
-$sql="INSERT INTO vipusers(username,email,password,accexpiredate,lastupdateddate) VALUES ('$username','$email','$password','$accexpiredate','$lastupdateddate')";
-
-
-
-mysqli_query($conn,$sql);
- header('location:manage-user.php');//redirecet to the profile page
-}
-}
 
 
 if(isset($_POST ['update-user'])){
